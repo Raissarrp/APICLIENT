@@ -7,10 +7,10 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 import com.example.dto.UsuarioDTO;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 public class ApiClient {
- private static final String BASE_URL = "http://localhost:8080/api";
+ private static final String BASE_URL = "http://localhost:8080/api";// colocar o codifo do local host aquii
  private static final HttpClient httpClient = HttpClient.newBuilder()
    .connectTimeout(Duration.ofSeconds(10))
    .build();
@@ -31,9 +31,14 @@ public class ApiClient {
  }
 
  // POST - Criar um usuário
+ /**
+  * @param usuario
+  * @return
+  * @throws Exception
+  */
  public static String createUsuario(UsuarioDTO usuario) throws Exception {
-  String jsonBody = gson.toJson(usuario);
-
+  final String jsonBody = gson.toJson(usuario);
+  
   HttpRequest request = HttpRequest.newBuilder()
     .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
     .uri(URI.create(BASE_URL + "/usuarios"))
