@@ -7,10 +7,10 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 import com.example.dto.UsuarioDTO;
-//import com.google.gson.Gson;
+import com.google.gson.Gson;
 
 public class ApiClient {
- private static final String BASE_URL = "http://localhost:8080/api";// colocar o codifo do local host aquii
+ private static final String BASE_URL = "http://localhost:8080/api/pessoas";// colocar o codifo do local host aquii
  private static final HttpClient httpClient = HttpClient.newBuilder()
    .connectTimeout(Duration.ofSeconds(10))
    .build();
